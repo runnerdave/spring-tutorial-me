@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Offer created: <a href="${pageContext.request.contextPath}/offers">click here to view current offer</a> 
+There was an unforeseen error, come back later.
 </body>
 </html>

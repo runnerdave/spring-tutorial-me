@@ -22,4 +22,9 @@ public class OffersService {
 		
 		return offersDao.getOffers();
 	}
+
+	public void create(Offer offer) {
+		offersDao.create(offer);
+		
+	}
 }
