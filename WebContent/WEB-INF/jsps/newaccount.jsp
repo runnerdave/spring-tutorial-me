@@ -12,14 +12,15 @@
 </head>
 <body>
 
+<h2>Create account</h2>
 
 	<sf:form action="${pageContext.request.contextPath}/createaccount" method="post" commandName="user">
 		<table class="formtable">
 
 			<tr>
 				<td class="label">Name: </td>
-				<td><sf:input name="name" type="text" class="control" path="name" /><br/>
-				<sf:errors path="name" cssClass="error"></sf:errors></td>
+				<td><sf:input name="username" type="text" class="control" path="username" /><br/>
+				<sf:errors path="username" cssClass="error"></sf:errors></td>
 			</tr>
 			<tr>
 				<td class="label">Email: </td>
@@ -38,7 +39,7 @@
 			</tr>
 			<tr>
 				<td class="label"> </td>
-				<td><input value="create advert" type="submit" class="control" /></td>
+				<td><input value="create account" type="submit" class="control" /></td>
 			</tr>
 		</table>
 	</sf:form>
