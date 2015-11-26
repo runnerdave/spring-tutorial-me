@@ -14,6 +14,8 @@
 	<p><a href="${pageContext.request.contextPath}/offers">List offers</a></p>
 	
 	<p><a href="${pageContext.request.contextPath}/createoffer">Create offers</a></p>
+	
+	<p><a href="${pageContext.request.contextPath}/newaccount">Create account</a></p>
 
 	
 
