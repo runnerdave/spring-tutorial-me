@@ -3,6 +3,7 @@
 .formtable{
 	padding: 10px;
 	border: 1px solid blue;
+	width: 600px;
 }
 
 input[type=text] {
@@ -27,6 +28,12 @@ textarea {
 .error {
 	font-size: small;
 	color: red;
+	margin-left: 10px;
+}
+
+.valid {
+	font-size: small;
+	color: green;
 	margin-left: 10px;
 }
 

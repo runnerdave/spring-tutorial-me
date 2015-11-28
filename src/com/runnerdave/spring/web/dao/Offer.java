@@ -8,15 +8,14 @@ import com.runnerdave.spring.web.validation.ValidEmail;
 public class Offer {
 	private int id;
 	
-	@Size(min=5, max=100, message="Name must be between 5 and 10")
+	@Size(min=5, max=100)
 	private String name;
 	
 	@NotNull	
-	//@Pattern(regexp=".*\\@.*\\..*", message="This does not appear to be a valid email")
-	@ValidEmail(min=6, message="This email address is not valid.")
+	@ValidEmail(min=6)
 	private String email;
 	
-	@Size(min=5, max=100, message="Name must be between 20 and 255")
+	@Size(min=5, max=100)
 	private String text;
 
 	public int getId() {
