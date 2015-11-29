@@ -17,10 +17,9 @@ import com.runnerdave.spring.web.service.UsersService;
 
 @Controller
 public class LoginController {
-	
+
 	private UsersService usersService;
-	
-	
+
 	@Autowired
 	public void setUserService(UsersService usersService) {
 		this.usersService = usersService;
@@ -31,45 +30,49 @@ public class LoginController {
 		return "login";
 	}
 	
+	@RequestMapping("/denied")
+	public String showDenied() {
+		return "denied";
+	}
+
 	@RequestMapping("/newaccount")
 	public String showNewAccount(Model model) {
 		model.addAttribute("user", new User());
 		return "newaccount";
 	}
-	
-	@RequestMapping("/createaccount")
-	public String createAccount() {
-		return "accountcreated";
-	}
-	
+
+//	@RequestMapping("/createaccount")
+//	public String createAccount() {
+//		return "accountcreated";
+//	}
+
 	@RequestMapping("/loggedout")
 	public String showLoggedOut() {
 		return "loggedout";
 	}
-	
+
 	@RequestMapping("/admin")
-	public String showAdmin(Model model) {	
+	public String showAdmin(Model model) {
+
 		List<User> users = usersService.getAllUsers();
-		
 		model.addAttribute("users", users);
-		
+
 		return "admin";
 	}
-	
+
 	@RequestMapping(value = "/createaccount", method = RequestMethod.POST)
 	public String createAccount(@Valid User user, BindingResult result) {
 		if (result.hasErrors()) {
 			return "newaccount";
 		}
 		user.setEnabled(true);
-		user.setAuthority("user");
-		
-		if (usersService.exists(user.getUsername())){
+		user.setAuthority("ROLE_USER");
+
+		if (usersService.exists(user.getUsername())) {
 			result.rejectValue("username", "DuplicateKey.user.username");
 			return "newaccount";
 		}
-		
-		
+
 		try {
 			usersService.create(user);
 		} catch (DuplicateKeyException e) {
