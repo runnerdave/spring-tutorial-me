@@ -3,15 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<!-- default header name is X-CSRF-TOKEN -->
 
-<meta name="_csrf_header" content="${_csrf.headerName}"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css" type="text/css" media="all" />
-<title>Login Page</title>
-</head>
-<body onload='document.f.username.focus();'>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			document.f.username.focus();
+		});
+	
+	</script>
 	<h3>Login with Username and Password</h3>
 	
 	<c:if test="${param.error != null}">
@@ -36,10 +35,9 @@
 				<td colspan='2'><input name="submit" type="submit"
 					value="Login" /></td>
 			</tr>
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			
 		</table>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	</form>
 	
 	<p><a href="<c:url value="/newaccount"/>">Create account</a></p>
-</body>
-</html>
