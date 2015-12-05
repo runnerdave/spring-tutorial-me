@@ -7,22 +7,22 @@
 
 
 	<p>
-		<a href="${pageContext.request.contextPath}/offers">List offers</a>
+		<a href="<c:url value="/offers" />">List offers</a>
 	</p>
 
 	<p>
-		<a href="${pageContext.request.contextPath}/createoffer">Create
+		<a href="<c:url value="/createoffer" />">Create
 			offers</a>
 	</p>
 
 	<p>
-		<a href="${pageContext.request.contextPath}/newaccount">Create
+		<a href="<c:url value="/newaccount" />">Create
 			account</a>
 	</p>	
 
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<p>
-			<a href="${pageContext.request.contextPath}/admin">Admin</a>
+			<a href="<c:url value="/admin" />">Admin</a>
 		</p>
 	</sec:authorize>
 

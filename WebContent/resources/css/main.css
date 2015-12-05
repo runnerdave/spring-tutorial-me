@@ -72,6 +72,13 @@ a.login {
 	right: 10px;
 }
 
+input.login {
+	position: absolute;
+	top: 10px;
+	color: white;
+	right: 10px;
+}
+
 a.title {
 	color: white;
 	font-size: 36px;
