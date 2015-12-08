@@ -1,22 +1,29 @@
 package com.runnerdave.spring.web.dao;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.runnerdave.spring.web.validation.ValidEmail;
-
 public class Offer {
-	private int id;
-	
-	@Size(min=5, max=100)
-	private String name;
-	
-	@NotNull	
-	@ValidEmail(min=6)
-	private String email;
-	
+	private int id;	
+		
 	@Size(min=5, max=100)
 	private String text;
+	
+	private User user;
+
+	public Offer(int id, String text, User user) {
+		super();
+		this.id = id;
+		this.text = text;
+		this.user = user;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public int getId() {
 		return id;
@@ -26,20 +33,44 @@ public class Offer {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return user.getUsername();
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	@Override
+	public String toString() {
+		return "Offer [id=" + id + ", text=" + text + ", user=" + user + "]";
 	}
 
-	public String getEmail() {
-		return email;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((text == null) ? 0 : text.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Offer other = (Offer) obj;
+		if (text == null) {
+			if (other.text != null)
+				return false;
+		} else if (!text.equals(other.text))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
 	}
 
 	public String getText() {
@@ -50,42 +81,10 @@ public class Offer {
 		this.text = text;
 	}
 
-	@Override
-	public String toString() {
-		return "Offer [id=" + id + ", name=" + name + ", email=" + email
-				+ ", text=" + text + "]";
-	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Offer other = (Offer) obj;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (text == null) {
-			if (other.text != null)
-				return false;
-		} else if (!text.equals(other.text))
-			return false;
-		return true;
-	}
 	
-	public Offer(String name, String email, String text) {
-		this.name = name;
-		this.email = email;
+	public Offer(User user, String text) {
+		this.user = user;
 		this.text = text;
 	}
 

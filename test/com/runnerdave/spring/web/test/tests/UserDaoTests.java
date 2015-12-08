@@ -37,12 +37,11 @@ public class UserDaoTests {
 	public void init() {
 		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
 		jdbc.execute("delete from users");
-		jdbc.execute("delete from authorities");
 	}
 	
 	@Test
 	public void testCreateUser(){
-		User user = new User("johnwpurce", "hellothere", "john@kkk.com", true, "user");
+		User user = new User("johnwpurce", "nombre", "hellothere", "john@kkk.com", true, "user");
 		
 		assertTrue("User creation should return true", userDao.create(user));
 		
@@ -57,6 +56,5 @@ public class UserDaoTests {
 	public void cleanup() {
 		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
 		jdbc.execute("delete from users");
-		jdbc.execute("delete from authorities");
 	}
 }

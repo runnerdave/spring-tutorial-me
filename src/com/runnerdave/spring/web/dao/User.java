@@ -22,6 +22,8 @@ public class User {
 	@Email
 	private String email;
 	
+	private String name;
+	
 	public String getEmail() {
 		return email;
 	}
@@ -65,17 +67,38 @@ public class User {
 		this.authority = authority;
 	}
 
-	public User(String username, String password, String email, boolean enabled, String authority) {
+	public User(String username, String name, String password, String email, boolean enabled, String authority) {
 		this.username = username;
+		this.name = name;
 		this.password = password;
 		this.enabled = enabled;
 		this.authority = authority;
 		this.email = email;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public User() {
 	}
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((authority == null) ? 0 : authority.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + (enabled ? 1231 : 1237);
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -97,6 +120,11 @@ public class User {
 			return false;
 		if (enabled != other.enabled)
 			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
 		if (username == null) {
 			if (other.username != null)
 				return false;
@@ -104,5 +132,13 @@ public class User {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", email=" + email + ", name=" + name + ", enabled=" + enabled
+				+ ", authority=" + authority + "]";
+	}
+	
+	
 
 }
