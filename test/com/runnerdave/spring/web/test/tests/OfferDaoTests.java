@@ -80,11 +80,31 @@ public class OfferDaoTests {
 		assertEquals("Offers lists should be empty.", 0, empty.size());
 	}
 	
+	@Test
+	public void testGetOffersByUsername() {
+		User user = new User("johnwpurce", "nombre", "hellothere", "john@kkk.com", true, "user");
+
+		assertTrue("User creation should return true", userDao.create(user));
+
+		Offer offer1 = new Offer(user, "This is a test offer.");
+
+		assertTrue("Offer creation should return true", offersDao.create(offer1));
+		
+		Offer offer2 = new Offer(user, "This is a test offer 2.");
+
+		assertTrue("Offer creation should return true", offersDao.create(offer2));
+		
+		List<Offer> offersByUsername = offersDao.getOffersByUsername(user.getUsername());
+
+		assertTrue("Offers lists should not be empty.", offersByUsername.size() == 2);
+	}
+	
 	@After
 	public void cleanup() {
 		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
-		jdbc.execute("delete from users");
 		jdbc.execute("delete from offers");
+		jdbc.execute("delete from users");
+		
 	}
 
 }

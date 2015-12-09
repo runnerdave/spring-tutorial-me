@@ -89,7 +89,7 @@ public class Offer {
 	}
 
 	public Offer() {
-		// TODO Auto-generated constructor stub
+		this.user = new User();
 	}
 
 }

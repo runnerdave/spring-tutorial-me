@@ -5,16 +5,6 @@
 	<table class="formtable">
 
 		<tr>
-			<td class="label">Name: </td>
-			<td><sf:input name="name" type="text" class="control" path="name" /><br/>
-			<sf:errors path="name" cssClass="error"></sf:errors></td>
-		</tr>
-		<tr>
-			<td class="label">Email: </td>
-			<td><sf:input name="email" type="text" class="control" path="email"/><br/>
-			<sf:errors path="email" cssClass="error"/></td>
-		</tr>
-		<tr>
 			<td class="label">Your offer: </td>
 			<td><sf:textarea cols="10" rows="10" name="text" class="control" path="text"></sf:textarea><br/>
 			<sf:errors path="text" cssClass="error"/></td>

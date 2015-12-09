@@ -11,11 +11,19 @@
 		<table class="formtable">
 
 			<tr>
-				<td class="label">Name:</td>
+				<td class="label">Username:</td>
 				<td><sf:input name="username" type="text" class="control"
 						path="username" />
 					<div class="error">
 						<sf:errors path="username"></sf:errors>
+					</div></td>
+			</tr>
+			<tr>
+				<td class="label">Name:</td>
+				<td><sf:input name="name" type="text" class="control"
+						path="name" />
+					<div class="error">
+						<sf:errors path="name"></sf:errors>
 					</div></td>
 			</tr>
 			<tr>
