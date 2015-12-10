@@ -83,3 +83,7 @@ a.title {
 	color: white;
 	font-size: 36px;
 }
+
+input.delete {
+	border: 1px solid red;
+}

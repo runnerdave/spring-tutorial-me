@@ -22,10 +22,50 @@ public class OffersService {
 	public List<Offer> getCurrent() {		
 		return offersDao.getOffers();
 	}
+	
+	public List<Offer> getOffersByUsername(String username) {		
+		return offersDao.getOffersByUsername(username);
+	}
 
 	@Secured({"ROLE_USER","ROLE_ADMIN"})
 	public void create(Offer offer) {
 		offersDao.create(offer);
+		
+	}
+
+	public boolean hasOffer(String name) {
+		if (name == null) return false;
+		List<Offer> offers = offersDao.getOffersByUsername(name);
+		if (offers.size() > 0) {
+			return true;
+		}
+		
+		return false;
+	}
+
+	public Offer getSingleOfferByUsername(String username) {
+		if (username == null) {
+			return null;
+		}
+		List<Offer> offers = offersDao.getOffersByUsername(username);
+		
+		if (offers.size() == 0) {
+			return null;
+		}
+		return offers.get(0);
+	}
+
+	public void saveOrUpdate(Offer offer) {
+		if (offer.getId() != 0) {
+			offersDao.update(offer);
+		} else {
+			offersDao.create(offer);
+		}
+		
+	}
+
+	public void delete(Offer offer) {
+		offersDao.delete(offer.getId());
 		
 	}
 }

@@ -44,22 +44,37 @@ public class OffersController {
 	}
 
 	@RequestMapping("/createoffer")
-	public String createOffer(Model model) {
-		model.addAttribute("offer", new Offer());
+	public String createOffer(Model model, Principal principal) {
+		Offer offer = null;
+		if (principal != null) {
+			String username = principal.getName();
+			offer = offersService.getSingleOfferByUsername(username);
+		}
+		if (offer == null) {
+			offer = new Offer();
+		}
+		model.addAttribute("offer", offer);
 		return "createoffer";
 	}
 
 	@RequestMapping(value = "/docreate", method = RequestMethod.POST)
-	public String doCreate(Model model, @Valid Offer offer, BindingResult result, Principal principal) {
+	public String doCreate(Model model, @Valid Offer offer, BindingResult result, Principal principal,
+			@RequestParam(value = "delete", required = false) String delete) {
 		if (result.hasErrors()) {
 			return "createoffer";
 		}
 		
-		String username = principal.getName();
-		
-		offer.getUser().setUsername(username);
+		if (delete == null) {
+			String username = principal.getName();
+			offer.getUser().setUsername(username);
+			offersService.saveOrUpdate(offer);
+			return "offercreated";
+		} else {
+			offersService.delete(offer);
+			return "offerdeleted";
+		}
 
-		offersService.create(offer);
-		return "offercreated";
+		
+		
 	}
 }
