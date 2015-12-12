@@ -49,9 +49,9 @@ public class OfferDaoTests {
 	@Test
 	public void testCreateOffer() {
 
-		User user = new User("johnwpurce", "nombre", "hellothere", "john@kkk.com", true, "user");
+		User user = new User("johnwpurce", "nombrecito", "hellothere", "john@kkk.com", true, "user");
 
-		assertTrue("User creation should return true", userDao.create(user));
+		userDao.create(user);
 
 		Offer offer = new Offer(user, "This is a test offer.");
 
@@ -82,9 +82,9 @@ public class OfferDaoTests {
 	
 	@Test
 	public void testGetOffersByUsername() {
-		User user = new User("johnwpurce", "nombre", "hellothere", "john@kkk.com", true, "user");
+		User user = new User("johnwpurce", "nombresote", "hellothere", "john@kkk.com", true, "user");
 
-		assertTrue("User creation should return true", userDao.create(user));
+		userDao.create(user);
 
 		Offer offer1 = new Offer(user, "This is a test offer.");
 

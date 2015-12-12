@@ -77,9 +77,10 @@
   		<version>5.2.2.Final</version>
   	</dependency>
   	<dependency>
-  		<groupId>hibernate</groupId>
+  		<groupId>org.hibernate</groupId>
   		<artifactId>hibernate</artifactId>
-  		<version>3.0.5</version>
+  		<version>3.5.4-Final</version>
+  		<type>pom</type>
   	</dependency>
   	<dependency>
   		<groupId>javax.transaction</groupId>
@@ -120,11 +121,22 @@
   		<groupId>org.apache.tiles</groupId>
   		<artifactId>tiles-servlet</artifactId>
   		<version>3.0.5</version>
+  		<exclusions>
+  			<exclusion>
+  				<artifactId>jcl-over-slf4j</artifactId>
+  				<groupId>org.slf4j</groupId>
+  			</exclusion>
+  		</exclusions>
   	</dependency>
   	<dependency>
   		<groupId>log4j</groupId>
   		<artifactId>log4j</artifactId>
   		<version>1.2.14</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.slf4j</groupId>
+  		<artifactId>slf4j-api</artifactId>
+  		<version>1.7.5</version>
   	</dependency>
   	<dependency>
   		<groupId>org.springframework</groupId>
@@ -140,6 +152,16 @@
   		<groupId>junit</groupId>
   		<artifactId>junit</artifactId>
   		<version>4.12</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-orm</artifactId>
+  		<version>4.2.2.RELEASE</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.hibernate</groupId>
+  		<artifactId>hibernate-core</artifactId>
+  		<version>4.3.11.Final</version>
   	</dependency>
   </dependencies>
 </project>
