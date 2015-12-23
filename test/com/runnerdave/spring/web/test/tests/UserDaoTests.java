@@ -45,6 +45,7 @@ public class UserDaoTests {
 	public void init() {
 		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
 		jdbc.execute("delete from offers");
+		jdbc.execute("delete from messages");
 		jdbc.execute("delete from users");
 	}
 	
@@ -84,6 +85,7 @@ public class UserDaoTests {
 	@After
 	public void cleanup() {
 		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
+		jdbc.execute("delete from messages");
 		jdbc.execute("delete from users");
 	}
 }
