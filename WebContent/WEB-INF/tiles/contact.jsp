@@ -1,12 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-Send your message here
-</body>
-</html>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
+	<h2>Send Message</h2>
+
+	<sf:form method="post" commandName="message">
+	
+		<input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
+	
+		<table class="formtable">
+			<tr>
+				<td class="label">Your name:</td>
+				<td><sf:input name="name" type="text" class="control"
+						path="name" />
+					<div class="error">
+						<sf:errors path="name" />
+					</div></td>
+			</tr>
+			<tr>
+				<td class="label">Email:</td>
+				<td><sf:input name="email" type="text" class="control"
+						path="email" />
+					<div class="error">
+						<sf:errors path="email" />
+					</div></td>
+			</tr>
+			<tr>
+				<td class="label">Subject:</td>
+				<td><sf:input type="text" class="control" path="subject" />
+					<div class="error">
+						<sf:errors path="subject"></sf:errors>
+					</div></td>
+			</tr>
+			<tr>
+				<td class="label">Your message:</td>
+				<td><sf:textarea name="content" type="text" class="control"
+						path="content" />
+					<div class="error">
+						<sf:errors path="content"></sf:errors>
+					</div></td>
+			</tr>
+			<tr>
+				<td class="label"></td>
+				<td><input value="Send message" type="submit" class="control" /></td>
+			</tr>
+		</table>
+	</sf:form>
+
