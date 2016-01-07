@@ -35,7 +35,7 @@ public class MessagesDao extends BaseDao {
 	}
 
 	public void saveOrUpdate(Message message) {
-
+		System.out.println("saving message" + message.toString());
 		session().saveOrUpdate(message);
 	}
 
