@@ -14,14 +14,12 @@ import com.runnerdave.spring.web.dao.UsersDao;
 @Service("usersService")
 public class UsersService {
 	
+	
 	@Autowired
 	private UsersDao usersDao;
 	
 	@Autowired
 	private MessagesDao messagesDao;
-	
-
-
 	
 	public void create(User user) {
 		usersDao.create(user);
@@ -41,5 +39,9 @@ public class UsersService {
 	
 	public void sendMessage(Message message) {
 		messagesDao.saveOrUpdate(message);
+	}
+	
+	public User getUser(String username) {
+		return usersDao.getUserByUsername(username);
 	}
 }
