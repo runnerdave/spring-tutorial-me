@@ -15,7 +15,6 @@
 		
 		for(var i=0; i<data.messages.length; i++) {
 			var message = data.messages[i];
-			//$("div#messages").append(message.subject);
 			
 			var messageDiv = document.createElement("div");
 			messageDiv.setAttribute("class", "message");
