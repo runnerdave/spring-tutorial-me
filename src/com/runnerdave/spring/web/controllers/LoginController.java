@@ -42,6 +42,11 @@ public class LoginController {
 	public String showDenied() {
 		return "denied";
 	}
+	
+	@RequestMapping("/messages")
+	public String showMessages() {
+		return "messages";
+	}
 
 	@RequestMapping("/newaccount")
 	public String showNewAccount(Model model) {
