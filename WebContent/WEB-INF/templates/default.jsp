@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<!-- default header name is X-CSRF-TOKEN-->	
-<meta name="_csrf_header" content="${_csrf.headerName}"/>	
-  
+<!-- default header name is X-CSRF-TOKEN-->
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+
 <title><tiles:insertAttribute name="title"></tiles:insertAttribute></title>
 
 <script type="text/javascript"
@@ -16,8 +16,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/static/css/main.css"
 	type="text/css" media="all" />
-	
-	<tiles:insertAttribute name="includes"></tiles:insertAttribute>
+
+<tiles:insertAttribute name="includes"></tiles:insertAttribute>
 
 </head>
 <body>
@@ -25,13 +25,17 @@
 	<div class="header">
 		<tiles:insertAttribute name="header"></tiles:insertAttribute>
 	</div>
-	
+
+	<div class="toolbar">
+		<tiles:insertAttribute name="toolbar"></tiles:insertAttribute>
+	</div>
+
 	<div class="content">
 		<tiles:insertAttribute name="content"></tiles:insertAttribute>
 	</div>
 
-	<hr/>
-	
+	<hr />
+
 	<div class="footer">
 		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
 	</div>

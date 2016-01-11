@@ -57,6 +57,12 @@ div.content {
 	padding: 40px;
 }
 
+div.toolbar {
+	position: relative;
+	padding-left: 40px;
+	top: 10px;
+}
+
 div.header {
 	position: relative;
 	text-align: center;
@@ -87,3 +93,20 @@ a.title {
 input.delete {
 	border: 1px solid red;
 }
+
+table.offers td {
+	border-bottom: 1px dashed brown;
+	padding-bottom: 5px;
+}
+
+td.name {
+	width: 100px;
+	vertical-align: top;
+}
+
+td.contact {
+	padding: 0px 10px;
+	width: 40px;
+	vertical-align: top;
+}
+

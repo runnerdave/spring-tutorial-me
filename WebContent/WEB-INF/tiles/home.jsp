@@ -4,45 +4,38 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 
+<p />
+
+
+
 <table class="offers">
-	<tr>
-		<td>Name</td>
-		<td>Email</td>
-		<td>Offer</td>
-	</tr>
 	<c:forEach var="offer" items="${offers}">
 		<tr>
-			<td><c:out value="${offer.user.name }"></c:out></td>
-			<td><a href="<c:url value='/message?uid=${offer.username }'/>">contact</a></td>
-			<td><c:out value="${offer.text }"></c:out></td>
+			<td class="name"><c:out value="${offer.user.name }"></c:out></td>
+			<td class="contact"><a
+				href="<c:url value='/message?uid=${offer.username }'/>">contact</a></td>
+			<td class="offer"><c:out value="${offer.text }"></c:out></td>
 		</tr>
 	</c:forEach>
 </table>
 
-<p/>
-
-<c:choose>
-	<c:when test="${hasOffer}">
-		<p>
-			<a href="<c:url value="/createoffer" />">Edit or delete your offer</a>
-		</p>
-	</c:when>
-	<c:otherwise>
-		<p>
-			<a href="<c:url value="/createoffer" />">Create offer</a>
-		</p>
-	</c:otherwise>
-</c:choose>
 
 
 
-<p>
-	<a href="<c:url value="/newaccount" />">Create account</a>
-</p>
+<script type="text/javascript">
+<!--
+	function updateMessageLink(data) {
+		$("#numberMessages").text(data.number);
+	}
 
-<sec:authorize access="hasRole('ROLE_ADMIN')">
-	<p>
-		<a href="<c:url value="/admin" />">Admin</a>
-	</p>
-</sec:authorize>
-
+	function onLoad() {
+		updatePage();
+		window.setInterval(updatePage, 5000);
+	}
+	
+	function updatePage() {
+		$.getJSON('<c:url value="/getmessages"/>', updateMessageLink);
+	}
+	$(document).ready(onLoad);
+//-->
+</script>
