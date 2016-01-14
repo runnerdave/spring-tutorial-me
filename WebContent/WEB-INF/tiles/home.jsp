@@ -20,14 +20,14 @@
 
 
 
-
+<sec:authorize access="isAuthenticated()">
 <script type="text/javascript">
 <!--
 	function updateMessageLink(data) {
 		$("#numberMessages").text(data.number);
 	}
 
-	function onLoad() {
+	function onLoad() {				
 		updatePage();
 		window.setInterval(updatePage, 5000);
 	}
@@ -38,3 +38,4 @@
 	$(document).ready(onLoad);
 //-->
 </script>
+</sec:authorize>
