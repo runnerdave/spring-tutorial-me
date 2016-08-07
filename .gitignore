@@ -2,3 +2,6 @@
 build/
 log/
 target/
+.project
+.settings
+.classpath
